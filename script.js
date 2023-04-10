@@ -9,6 +9,7 @@ let answerTwo = document.querySelector('.answerTwo')
 let answerThree = document.querySelector('.answerThree')
 let answerFour = document.querySelector('.answerFour')
 let listOfAnswers = document.querySelector('.listOfAnswers')
+let allAnswers = document.querySelectorAll('.answer')
 
 //include validation if question was answered right or wrong
 function setTime() {
@@ -23,7 +24,22 @@ function setTime() {
 }
 
 function setAnswers(options) {
+    console.log(allAnswers)
+    console.log(options)
+    for (let i = 0; i < 4; i++) {
+        allAnswers[i].textContent = options[i];
+        // debugger
+    }
+}
 
+function addListeners () {
+    for (let i = 0; i < allAnswers.length; i++) {
+        allAnswers[i].addEventListener('click', nextQuestion)
+    }
+}
+
+function nextQuestion(e) {
+    console.log(e.target)
 }
 
 function startQuiz () {
@@ -31,9 +47,10 @@ function startQuiz () {
     questions.textContent = quizQuestions[currentIndex].que
     listOfAnswers.classList.remove('hidden')
     setTime()
+    setAnswers(quizQuestions[currentIndex].options)
 }
 
-//make a question generator?? < TC advice
+addListeners()//talk over again
 
 timerButton.addEventListener('click', startQuiz)
 
