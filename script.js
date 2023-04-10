@@ -2,21 +2,27 @@
 let timerButton = document.querySelector('#timer-button')
 let timeDiv = document.querySelector('#timeDiv')
 let secondsLeft = 60;
+let questions = document.querySelector('.questions')
 
 //include validation if question was answered right or wrong
 function setTime() {
     let timerInterval = setInterval(function () {
         secondsLeft--;
-        timeDiv.textContent = secondsLeft + ' Seconds left'
+        timerButton.textContent = secondsLeft + ' Seconds left'
         if (secondsLeft === 0) {
             clearInterval(timerInterval)
-            timeDiv.textContent = 'END OF TIME'
+            timerButton.textContent = 'END OF TIME'
         }
     }, 1000)
 }
-//why doesnt it clear out at 0
+//why doesnt it stop at 0
+function startQuestion () {
+    questions.textContent = quizQuestions.que;
+}
 
-timerButton.addEventListener('click', setTime)
+// timerButton.addEventListener('click', setTime)
+
+timerButton.addEventListener('click', startQuestion)
 
 
 

@@ -1,3 +1,13 @@
 h1 {
     text-align: center;
 }
+
+header {
+    background-color: blueviolet;
+    border-radius: 5px;
+    color:aliceblue
+}
+
+#main-div {
+    text-align: center;
+}
