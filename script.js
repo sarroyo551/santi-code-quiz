@@ -10,6 +10,7 @@ let answerThree = document.querySelector('.answerThree')
 let answerFour = document.querySelector('.answerFour')
 let listOfAnswers = document.querySelector('.listOfAnswers')
 let allAnswers = document.querySelectorAll('.answer')
+let outcome = document.querySelector('#outcome')
 
 //include validation if question was answered right or wrong
 function setTime() {
@@ -19,6 +20,7 @@ function setTime() {
         if (secondsLeft === 0) {
             clearInterval(timerInterval)
             timerButton.textContent = 'END OF TIME'
+            //also go to end screen
         }
     }, 1000)
 }
@@ -39,14 +41,30 @@ function addListeners () {
 }
 
 function nextQuestion(e) {
-    console.log(e.target);
+    console.log(e.target.textContent);
+    // console.log(quizQuestions[currentIndex].answer)
     //if the answer(target) is correct
+    let isCorrect = e.target.textContent.trim() === quizQuestions[currentIndex].answer
+    if (!isCorrect) {
+        // console.log(e.target.textContent)
+        secondsLeft-=10;
+    } 
     //if incorrect take out 10 seconds from clock
+    currentIndex++;
     //go to the next question -
         //update current index
-        //if the index is equal to the length
+    if (currentIndex < quizQuestions.length)  {
+        questions.textContent = quizQuestions[currentIndex].que
+        setAnswers(quizQuestions[currentIndex].options)
+        
+    } else {
+        //go to the end
+
+    }
+        //if the index is equal to the length we go to the end (results) else if not equal do next steps
         //update text content for question
         //update text for answers
+
 }
 
 function startQuiz () {
