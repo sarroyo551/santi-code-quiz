@@ -23,11 +23,18 @@ function setTime() {
 //why doesnt it stop at 0
 
 function startQuiz () {
-    console.log(quizQuestions)
-    for (let i = 0; i < quizQuestions[0].numb; i++) {
-        questions.textContent = quizQuestions[0].que;
-        //how do i loop over all the questions if they are in their own objects
+    // console.log(quizQuestions)
+    console.log(onlyQues.length);
+    // for (let i = 0; i < quizQuestions[0].numb; i++) {
+    //     questions.textContent = quizQuestions[0].que;
+    //     //how do i loop over all the questions if they are in their own objects
+    // }
+    for (let i = 0; i < onlyQues.length; i++) {
+        console.log(onlyQues[i])
+        questions.textContent = onlyQues[i]
+        // questions.textContent = onlyQues[i] += questions
     }
+    //only grabs the last question?
 
     setTime()
 }
@@ -38,27 +45,21 @@ timerButton.addEventListener('click', startQuiz)
 
 
 
+// const onlyQues = {
+//     que: 'Commonly used data types do NOT include:',
+//     que: 'A very useful tool during development are debugging for printing content to the debugger:',
+//     que: 'A condition in an if/else statement is enclosed with:',
+//     que: 'String values must be enclosed within ____ when being assigned to variables:',
+//     que: 'Arrays in JavaScript can be used to store:'
+// }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const onlyQues = [
+    'Commonly used data types do NOT include:',
+    'A very useful tool during development are debugging for printing content to the debugger:',
+    'A condition in an if/else statement is enclosed with:',
+    'String values must be enclosed within ____ when being assigned to variables:',
+    'Arrays in JavaScript can be used to store:'
+]
 
 
 
