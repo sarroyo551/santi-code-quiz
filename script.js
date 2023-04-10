@@ -2,6 +2,7 @@
 let timerButton = document.querySelector('#timer-button')
 let timeDiv = document.querySelector('#timeDiv')
 let secondsLeft = 60;
+let currentIndex = 0;
 let questions = document.querySelector('.questions')
 let answerOne = document.querySelector('.answerOne')
 let answerTwo = document.querySelector('.answerTwo')
@@ -20,22 +21,15 @@ function setTime() {
         }
     }, 1000)
 }
-//why doesnt it stop at 0
+
+function setAnswers(options) {
+
+}
 
 function startQuiz () {
-    // console.log(quizQuestions)
-    console.log(onlyQues.length);
-    // for (let i = 0; i < quizQuestions[0].numb; i++) {
-    //     questions.textContent = quizQuestions[0].que;
-    //     //how do i loop over all the questions if they are in their own objects
-    // }
-    for (let i = 0; i < onlyQues.length; i++) {
-        console.log(onlyQues[i])
-        questions.textContent = onlyQues[i]
-        // questions.textContent = onlyQues[i] += questions
-    }
-    //only grabs the last question?
-
+    console.log(quizQuestions.length);
+    questions.textContent = quizQuestions[currentIndex].que
+    listOfAnswers.classList.remove('hidden')
     setTime()
 }
 
@@ -53,13 +47,13 @@ timerButton.addEventListener('click', startQuiz)
 //     que: 'Arrays in JavaScript can be used to store:'
 // }
 
-const onlyQues = [
-    'Commonly used data types do NOT include:',
-    'A very useful tool during development are debugging for printing content to the debugger:',
-    'A condition in an if/else statement is enclosed with:',
-    'String values must be enclosed within ____ when being assigned to variables:',
-    'Arrays in JavaScript can be used to store:'
-]
+// const onlyQues = [
+//     'Commonly used data types do NOT include:',
+//     'A very useful tool during development are debugging for printing content to the debugger:',
+//     'A condition in an if/else statement is enclosed with:',
+//     'String values must be enclosed within ____ when being assigned to variables:',
+//     'Arrays in JavaScript can be used to store:'
+// ]
 
 
 

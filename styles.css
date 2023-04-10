@@ -15,3 +15,7 @@ header {
 #main-div {
     text-align: center;
 }
+
+.hidden {
+    display: none;
+}
