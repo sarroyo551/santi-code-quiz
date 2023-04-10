@@ -11,15 +11,22 @@ let answerFour = document.querySelector('.answerFour')
 let listOfAnswers = document.querySelector('.listOfAnswers')
 let allAnswers = document.querySelectorAll('.answer')
 let outcome = document.querySelector('#outcome')
+let timerInterval;
+let score = document.querySelector('#score')
+let resultPage = document.querySelector('#resultPage')
 
 //include validation if question was answered right or wrong
 function setTime() {
-    let timerInterval = setInterval(function () {
+    timerInterval = setInterval(function () {
         secondsLeft--;
         timerButton.textContent = secondsLeft + ' Seconds left'
         if (secondsLeft === 0) {
             clearInterval(timerInterval)
             timerButton.textContent = 'END OF TIME'
+            resultPage.classList.remove('hidden')
+            questions.classList.add('hidden')
+            listOfAnswers.classList.add('hidden')
+            score.textContent = secondsLeft
             //also go to end screen
         }
     }, 1000)
@@ -56,10 +63,15 @@ function nextQuestion(e) {
     if (currentIndex < quizQuestions.length)  {
         questions.textContent = quizQuestions[currentIndex].que
         setAnswers(quizQuestions[currentIndex].options)
-        
+        outcome.textContent = isCorrect ? 'Correct' : 'Wrong';
+        outcome.classList.remove('hidden')
     } else {
         //go to the end
-
+        clearInterval(timerInterval)
+        resultPage.classList.remove('hidden')
+        questions.classList.add('hidden')
+        listOfAnswers.classList.add('hidden')
+        score.textContent = secondsLeft
     }
         //if the index is equal to the length we go to the end (results) else if not equal do next steps
         //update text content for question

@@ -19,3 +19,7 @@ header {
 .hidden {
     display: none;
 }
+
+#outcome {
+    border-top: 1px solid black;
+}
