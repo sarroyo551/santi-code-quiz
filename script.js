@@ -3,6 +3,11 @@ let timerButton = document.querySelector('#timer-button')
 let timeDiv = document.querySelector('#timeDiv')
 let secondsLeft = 60;
 let questions = document.querySelector('.questions')
+let answerOne = document.querySelector('.answerOne')
+let answerTwo = document.querySelector('.answerTwo')
+let answerThree = document.querySelector('.answerThree')
+let answerFour = document.querySelector('.answerFour')
+let listOfAnswers = document.querySelector('.listOfAnswers')
 
 //include validation if question was answered right or wrong
 function setTime() {
@@ -16,13 +21,21 @@ function setTime() {
     }, 1000)
 }
 //why doesnt it stop at 0
-function startQuestion () {
-    questions.textContent = quizQuestions.que;
+
+function startQuiz () {
+    console.log(quizQuestions)
+    for (let i = 0; i < quizQuestions[0].numb; i++) {
+        questions.textContent = quizQuestions[0].que;
+        //how do i loop over all the questions if they are in their own objects
+    }
+
+    setTime()
 }
 
-// timerButton.addEventListener('click', setTime)
+//make a question generator?? < TC advice
 
-timerButton.addEventListener('click', startQuestion)
+timerButton.addEventListener('click', startQuiz)
+
 
 
 
