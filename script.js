@@ -39,7 +39,14 @@ function addListeners () {
 }
 
 function nextQuestion(e) {
-    console.log(e.target)
+    console.log(e.target);
+    //if the answer(target) is correct
+    //if incorrect take out 10 seconds from clock
+    //go to the next question -
+        //update current index
+        //if the index is equal to the length
+        //update text content for question
+        //update text for answers
 }
 
 function startQuiz () {
