@@ -23,3 +23,22 @@ header {
 #outcome {
     border-top: 1px solid black;
 }
+
+.answer {
+    background-color: purple;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#timer-button {
+    background-color: blueviolet;
+    color: white;
+    border-radius: 30px;
+}
+
+#timer-button:hover {
+    transform: scale(1,1.5);
+    cursor: pointer;
+}
+
