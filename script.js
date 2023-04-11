@@ -14,6 +14,7 @@ let outcome = document.querySelector('#outcome')
 let timerInterval;
 let score = document.querySelector('#score')
 let resultPage = document.querySelector('#resultPage')
+let submitButton = document.querySelector('#submitButton')
 
 //include validation if question was answered right or wrong
 function setTime() {
@@ -87,29 +88,9 @@ function startQuiz () {
     setAnswers(quizQuestions[currentIndex].options)
 }
 
-addListeners()//talk over again
+addListeners()
 
 timerButton.addEventListener('click', startQuiz)
-
-
-
-// const onlyQues = {
-//     que: 'Commonly used data types do NOT include:',
-//     que: 'A very useful tool during development are debugging for printing content to the debugger:',
-//     que: 'A condition in an if/else statement is enclosed with:',
-//     que: 'String values must be enclosed within ____ when being assigned to variables:',
-//     que: 'Arrays in JavaScript can be used to store:'
-// }
-
-// const onlyQues = [
-//     'Commonly used data types do NOT include:',
-//     'A very useful tool during development are debugging for printing content to the debugger:',
-//     'A condition in an if/else statement is enclosed with:',
-//     'String values must be enclosed within ____ when being assigned to variables:',
-//     'Arrays in JavaScript can be used to store:'
-// ]
-
-
 
 const quizQuestions = [
     {
