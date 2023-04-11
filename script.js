@@ -15,6 +15,11 @@ let timerInterval;
 let score = document.querySelector('#score')
 let resultPage = document.querySelector('#resultPage')
 let submitButton = document.querySelector('#submitButton')
+let initialsInput = document.querySelector('#initials')
+let scorePageDiv =document.querySelector('#scorePage')
+let backButton = document.querySelector('#backButton')
+let clearScoreButton = document.querySelector('#clearScore')
+let scoreList = document.querySelector('#scoreList')
 
 //include validation if question was answered right or wrong
 function setTime() {
@@ -56,6 +61,7 @@ function nextQuestion(e) {
     if (!isCorrect) {
         // console.log(e.target.textContent)
         secondsLeft-=10;
+        timerButton.textContent = secondsLeft + ' Seconds left'
     } 
     //if incorrect take out 10 seconds from clock
     currentIndex++;
@@ -83,14 +89,54 @@ function nextQuestion(e) {
 function startQuiz () {
     console.log(quizQuestions.length);
     questions.textContent = quizQuestions[currentIndex].que
+    console.log(currentIndex)
     listOfAnswers.classList.remove('hidden')
+    questions.classList.remove('hidden')
     setTime()
     setAnswers(quizQuestions[currentIndex].options)
 }
 
+function addInitials() {
+    //needs to understand what i typed in is VALID
+    console.log(initialsInput.value)
+    if (initialsInput.value == '') {
+        alert('Nothing was typed')
+        return
+    }
+    resultPage.classList.add('hidden')
+    //once submitted, the result page will be hidden
+    scorePageDiv.classList.remove('hidden')
+    outcome.classList.add('hidden')
+    //should show score page - remove hidden
+    let actualScore = document.createElement('p')
+    actualScore.textContent = `${secondsLeft} is the high score of ${initialsInput.value}!`
+    //add initials to p tag in score page
+    document.querySelector('#scoreList').appendChild(actualScore)
+}
+
+function reset () {
+    //should go back to start quiz page
+    scorePageDiv.classList.add('hidden')
+    //should hide score page
+    timerButton.textContent = 'Start Quiz'
+    //text of button should go back from seconds left to start quiz
+    secondsLeft = 60;
+    currentIndex = 0;
+    initialsInput.value = ''
+}
+
+function clearHighScores () {
+    //removes 
+    console.log(scoreList.children)
+    scoreList.innerHTML = '';
+}
+
 addListeners()
 
+clearScoreButton.addEventListener('click', clearHighScores)
+backButton.addEventListener('click', reset)
 timerButton.addEventListener('click', startQuiz)
+submitButton.addEventListener('click', addInitials)
 
 const quizQuestions = [
     {
